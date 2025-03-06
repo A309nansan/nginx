@@ -1,0 +1,5 @@
+nansan.site 8080
+dev.nansan.site 8081
+jenkins.nansan.site 8000
+config.nansan.site 8888
+rabbitmq.nansan.site 15672
