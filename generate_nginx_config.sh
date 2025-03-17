@@ -39,8 +39,9 @@ while read -r domain port; do
         log_prefix="$prefix"
     fi
 
-    # Nginx 설정 파일 생성
-    cat <<EOF > "$output_file"
+    # 파일이 존재하지 않을 경우에만 Nginx 설정 파일 생성
+    if [ ! -f "$output_file" ]; then
+        cat <<EOF > "$output_file"
 server {
     listen 443 ssl http2;
     server_name ${domain};
@@ -57,9 +58,10 @@ server {
     }
 }
 EOF
-
-    echo "Created $output_file"
+        echo "Created $output_file"
+    else
+        echo "$output_file already exists. Skipping creation."
+    fi
 done < "$subdomain_list_file"
 
 echo "All configurations generated successfully!"
-

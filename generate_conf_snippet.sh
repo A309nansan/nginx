@@ -52,4 +52,3 @@ client_max_body_size 10M;
 EOF
 
 echo "Created $snippet_dir/proxy-settings.conf"
-
