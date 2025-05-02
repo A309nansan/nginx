@@ -33,10 +33,10 @@ while read -r domain port; do
         output_file="$config_dir/default.conf"
         log_prefix="nansan"
     else
-        # 도메인 이름의 맨 앞 부분을 추출
-        prefix=$(echo "$domain" | cut -d '.' -f1)
-        output_file="$config_dir/${prefix}.conf"
-        log_prefix="$prefix"
+        # 도메인 이름 전체를 기준으로 dash 변환
+    	prefix=$(echo "$domain" | sed 's/\./-/g')
+    	output_file="$config_dir/${prefix}.conf"
+    	log_prefix="$prefix"
     fi
 
     # 파일이 존재하지 않을 경우에만 Nginx 설정 파일 생성
