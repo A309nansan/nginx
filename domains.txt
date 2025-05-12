@@ -10,6 +10,6 @@ config.nansan.site 13010
 vault.nansan.site 13100
 ui.minio.nansan.site 13110
 minio.nansan.site 13111
-rabbitmq.nansan.site 13120
+ui.rabbitmq.nansan.site 13120
 nexus.nansan.site 13130
 jenkins.nansan.site 14000
